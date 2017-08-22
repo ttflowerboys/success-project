@@ -1,7 +1,7 @@
 /* CSS basic */
 @import url('./fonts.css');
 
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{ margin: 0; padding: 0; }
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{ margin: 0; padding: 0; box-sizing: border-box;}
 fieldset,img{ border: 0; }
 :focus{ outline: 0; }
 address,caption,cite,code,dfn,th,var,optgroup{ font-style: normal; font-weight: normal; }
