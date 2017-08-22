@@ -2,6 +2,7 @@ Thunbs.db
 .idea
 *.log
 
+/*/Runtime
 
 source/
-/Agent/Runtime
+
