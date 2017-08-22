@@ -1,0 +1,7 @@
+Thunbs.db
+.idea
+*.log
+
+
+source/
+/Agent/Runtime
