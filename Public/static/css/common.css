@@ -1,0 +1,20 @@
+/* CSS basic */
+@import url('./fonts.css');
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{ margin: 0; padding: 0; }
+fieldset,img{ border: 0; }
+:focus{ outline: 0; }
+address,caption,cite,code,dfn,th,var,optgroup{ font-style: normal; font-weight: normal; }
+h1,h2,h3,h4,h5,h6{ font-size: 100%; font-weight: normal; font-family: "Microsoft YaHei"; }
+input,button,textarea,select{ *font-size: 100%; border:none;}
+body {font-family: "Microsoft Yahei";font-size: 12px;margin: 0;background: #fff;}
+ol,ul{ list-style: none; }
+table{ border-collapse: collapse; border-spacing: 0; }
+input,textarea {outline:none;}
+:link, :visited, ins{ text-decoration: none; }
+a{text-decoration: none;color: #3f89ec;font-family: "Microsoft YaHei";}
+a:hover{color: #0a1de9;transition : color 0.2s linear 0s,background-color 0.3 linear 0s;}
+.clearfix:after,.row:after,.form-items:after,.maintop:after{content:'\0020';display:block;height:0;clear:both;visibility:hidden;}
+.clearfix,.row,.form-items,.maintop{*zoom:1;}
+.fl{float: left;}.rel{position: relative;}.abs{position: absolute;}
+i,b,em{font-weight: normal;font-style: normal;}
