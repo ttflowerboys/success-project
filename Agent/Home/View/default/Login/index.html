@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>代理商管理中心</title>
+	<link rel="stylesheet" href="__PUBLIC__/static/css/common.css">
+	<link rel="stylesheet" href="__PUBLIC__/tpl/agent/css/style.css">
+	<style>html,body{background: #0e0e0e;}</style>
 </head>
 <body>
-	hello!
+	<div class="login">
+		<h1 class="loginHd">代理商管理中心</h1>
+		<div class="loginLogo"></div>
+		<form class="loginForm">
+			<div class="items">
+				<input class="ipt-text" type="text">
+				<i class="icon-username"></i>
+			</div>
+			<div class="items">
+				<input class="ipt-text" type="text">
+				<i class="icon-password"></i>
+			</div>
+			<div class="verifyItems">
+				<div class="items">
+					<input class="ipt-verify" type="text">
+					<i class="icon-verify"></i>
+				</div>
+				<img class="verify-pic" src="http://www.eab-ec.com/pk_admin.php/Home/Login/verifyCode.html" alt="二维码" width="100" height="44" title="看不清，换一张">
+			</div>
+			
+			<input class="loginButton" type="submit" value="登录">
+			
+		</form>
+	</div>
 </body>
 </html>
