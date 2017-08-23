@@ -18,3 +18,6 @@ a:hover{color: #0a1de9;transition : color 0.2s linear 0s,background-color 0.3 li
 .clearfix,.row,.form-items,.maintop{*zoom:1;}
 .fl{float: left;}.rel{position: relative;}.abs{position: absolute;}
 i,b,em{font-weight: normal;font-style: normal;}
+
+.col-2{width: 49%;float: left;}
+.col-2:nth-child(2){float: right;}

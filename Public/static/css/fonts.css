@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?2gll2m');
-  src:  url('fonts/icomoon.eot?2gll2m#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?2gll2m') format('truetype'),
-    url('fonts/icomoon.woff?2gll2m') format('woff'),
-    url('fonts/icomoon.svg?2gll2m#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?c8qksz');
+  src:  url('fonts/icomoon.eot?c8qksz#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?c8qksz') format('truetype'),
+    url('fonts/icomoon.woff?c8qksz') format('woff'),
+    url('fonts/icomoon.svg?c8qksz#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -32,4 +32,28 @@
 }
 .icon-verify:before {
   content: "\e902";
+}
+.icon-dashboard:before {
+  content: "\e903";
+}
+.icon-agent:before {
+  content: "\e904";
+}
+.icon-account:before {
+  content: "\e905";
+}
+.icon-count:before {
+  content: "\e906";
+}
+.icon-member:before {
+  content: "\e907";
+}
+.icon-arrow:before {
+  content: "\e908";
+}
+.icon-datashow:before {
+  content: "\e909";
+}
+.icon-datachart:before {
+  content: "\e90a";
 }
