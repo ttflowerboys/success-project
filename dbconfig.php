@@ -11,7 +11,10 @@ $array1 = array(
   'DB_PREFIX'=>'jack_',
 
   //'配置项'=>'配置值'
-  'DEFAULT_THEME' => 'default'
+  'DEFAULT_THEME' => 'default',
+  #模版的配置
+  'TMPL_L_DELIM'  => '<{',
+  'TMPL_R_DELIM'  => '}>',
 
 );
 
