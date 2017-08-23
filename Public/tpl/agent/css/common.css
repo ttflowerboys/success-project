@@ -1,0 +1,75 @@
+.Main{
+	position: absolute;
+	left: 200px;
+	top: 52px;
+	width: calc(100% - 200px);
+	background: #eeeeee;
+	padding: 14px;
+}
+
+.CommonBox{
+	padding: 10px 20px 20px;
+	background: #f8f8f8;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	width: 100%;
+}
+.CommonBox .commonHd{
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 26px;
+	color: #060606;
+	border-bottom: 1px solid #e3e3e3;
+	margin-bottom: 10px;
+}
+.CommonBox .commonHd i{
+	font-size: 15px;
+	vertical-align: middle;
+	line-height: 20px;
+	text-align: center;
+	color: #fd1e14;
+	margin-right: 8px;
+	display: inline-block;
+}
+
+.countList{overflow: hidden;}
+.countList li{
+	width: 20%;float: left;
+	border: 1px solid #e3e3e3;
+	text-align: center;
+	color: #717171;
+	padding: 12px 0;
+}
+.countList li strong{
+	margin-bottom: 5px;
+	font-size: 14px;
+	line-height: 18px;
+	display: block;
+	white-space: nowrap;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.countList li b{
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 32px;
+	color: #ed3b21;
+	display: block;
+	white-space: nowrap;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.Table{width: 100%;}
+.Table th{font-weight: bold;font-size: 14px;line-height: 22px;padding: 5px 10px;color: #fe8b8a;border-bottom: 2px solid #fe8b8a;}
+.Table td{padding: 6px;border: 1px solid #e3e3e3;text-align: center;color: #8b8b8b;}
+
+
+.Form{width: 350px;}
+.Form .input-items{height: 32px;margin-bottom: 15px;clear: both;}
+.Form .label{width: 110px;height: 32px;padding-right: 12px;line-height: 32px;text-align: right;float: left;}
+.Form .ipt-text{float: left;width: 228px;height: 32px;padding: 2px 8px;border: 1px solid #e3e3e3;border-radius: 3px;}
+.Form .ipt-text:focus{border-color: #1681fa;}
+.Form .ipt-submit{height: 32px;width: 228px;float: left;text-align: center;color: #fff;background: #fd4140;display: block;border-radius: 3px;cursor: pointer;}
