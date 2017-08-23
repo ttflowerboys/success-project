@@ -1,0 +1,70 @@
+html,body{width: 100%;height: 100%;}
+/* aside */
+.Aside{
+	padding-top: 20px;
+	height: 100%;
+	width: 200px;
+	background: #32323a;
+	float: left;
+}
+
+.AsideUserface{
+	width: 82px;
+	height: 82px;
+	border-radius: 50%;
+	border: 3px solid #fefefd;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.AsideUserface img{
+	width: 82px;
+	height: 82px;
+}
+.AsideUserInfo{
+	margin: 12px auto 22px;
+	font-size: 12px;
+	line-height: 18px;
+	text-align: center;
+	color: #c4c4c6;
+}
+
+.AsideList{
+
+}
+.AsideList li{
+	font-size: 14px;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #37373f;
+}
+.AsideList li a{
+	padding-left: 24px;
+	color: #97a0a9;
+	display: block;
+	transition : all 0.2s linear 0s;
+}
+.AsideList li a:after{
+	font-family: 'icomoon' !important;
+    content: "\e908";
+    font-size: 12px;
+    float: right;
+    margin-right: 12px;
+    display: none;
+}
+.AsideList li i{
+	font-size: 20px;
+	height: 50px;
+	width: 22px;
+	line-height: 50px;
+	text-align: center;
+	margin-right: 13px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.AsideList li.cur a,.AsideList li a:hover{
+	background: #fd4140;
+	color: #fbfefc;
+}
+.AsideList li.cur a:after,.AsideList li a:hover:after{
+	display: block;
+}
