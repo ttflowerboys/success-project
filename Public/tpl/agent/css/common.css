@@ -34,7 +34,8 @@
 
 .countList{overflow: hidden;}
 .countList li{
-	width: 20%;float: left;
+	width: 16.6%;
+	float: left;
 	border: 1px solid #e3e3e3;
 	text-align: center;
 	color: #717171;
