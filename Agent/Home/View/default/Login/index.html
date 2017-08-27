@@ -11,26 +11,40 @@
 	<div class="login">
 		<h1 class="loginHd">代理商管理中心</h1>
 		<div class="loginLogo"></div>
-		<form class="loginForm">
+		<form class="loginForm J_ajaxForm3" method="post" action="<{:U('login/loginDo')}>">
 			<div class="items">
-				<input class="ipt-text" type="text">
-				<i class="icon-username"></i>
+				<input class="ipt-text" type="text" name="phone" placeholder="手机号" required>
+				<i class="icon-phone"></i>
 			</div>
 			<div class="items">
-				<input class="ipt-text" type="text">
+				<input class="ipt-text" type="password" name="password" placeholder="密码" required>
 				<i class="icon-password"></i>
 			</div>
 			<div class="verifyItems">
 				<div class="items">
-					<input class="ipt-verify" type="text">
+					<input class="ipt-verify J_verifyCode" type="text" name="code" placeholder="验证码" required>
 					<i class="icon-verify"></i>
 				</div>
-				<img class="verify-pic" src="http://www.eab-ec.com/pk_admin.php/Home/Login/verifyCode.html" alt="二维码" width="100" height="44" title="看不清，换一张">
+				<img class="verify-pic J_verify" src="<{:U('verifyCode')}>" alt="二维码" width="100" height="44" title="看不清，换一张">
 			</div>
 			
 			<input class="loginButton" type="submit" value="登录">
 			
 		</form>
 	</div>
+
+	<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery.form/3.51/jquery.form.js"></script>
+	<script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
+	<script src="__PUBLIC__/static/js/common.js"></script>
+	<script>
+	$(function(){
+		var veriCodeUrl = "<{:U('verifyCode',array('randt'=>time()))}>?"+new Date().getTime(),
+    		mainUrl = "<{:U('index/index')}>";
+			$(".J_verify").on("click",function(){
+			    $(".verify-pic").attr("src",veriCodeUrl);
+			});
+	})
+	</script>
 </body>
 </html>
