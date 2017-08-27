@@ -1548,3 +1548,44 @@ function think_filter(&$value){
 function in_array_case($value,$array){
     return in_array(strtolower($value),array_map('strtolower',$array));
 }
+
+
+# add by jackLei 20170827 14:10
+
+// 验证码检测
+function check_verify($code, $id = ''){
+    $verify = new \Think\Verify();
+    return $verify->check($code, $id);
+}
+
+// 验证手机号是否正确
+function isMobile($mobile) {
+    
+    if (!is_numeric($mobile)) {
+        return false;
+    }
+    return preg_match('#^13[\d]{9}$|^14[5,7]{1}\d{8}$|^15[^4]{1}\d{8}$|^17[0,6,7,8]{1}\d{8}$|^18[\d]{9}$#', $mobile) ? true : false;
+}
+
+// 身份证号验证
+function check_identity($id='')
+{
+    $set = array(7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2);
+    $ver = array('1','0','x','9','8','7','6','5','4','3','2');
+    $arr = str_split($id);
+    $sum = 0;
+    for ($i = 0; $i < 17; $i++)
+    {
+        if (!is_numeric($arr[$i]))
+        {
+            return false;
+        }
+        $sum += $arr[$i] * $set[$i];
+    }
+    $mod = $sum % 11;
+    if (strcasecmp($ver[$mod],$arr[17]) != 0)
+    {
+        return false;
+    }
+    return true;
+}
