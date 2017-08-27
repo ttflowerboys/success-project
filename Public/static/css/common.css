@@ -16,7 +16,7 @@ a{text-decoration: none;color: #3f89ec;font-family: "Microsoft YaHei";}
 a:hover{color: #0a1de9;transition : color 0.2s linear 0s,background-color 0.3 linear 0s;}
 .clearfix:after,.row:after,.form-items:after,.maintop:after{content:'\0020';display:block;height:0;clear:both;visibility:hidden;}
 .clearfix,.row,.form-items,.maintop{*zoom:1;}
-.fl{float: left;}.rel{position: relative;}.abs{position: absolute;}
+.fl{float: left;}.fr{float: right;}.rel{position: relative;}.abs{position: absolute;}
 i,b,em{font-weight: normal;font-style: normal;}
 
 .col-2{width: 49%;float: left;}
