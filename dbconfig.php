@@ -16,6 +16,11 @@ $array1 = array(
   'TMPL_L_DELIM'  => '<{',
   'TMPL_R_DELIM'  => '}>',
 
+  'sexArr' => array(
+      1 => '男',
+      2 => '女'
+    ),
+
 );
 
 ?>

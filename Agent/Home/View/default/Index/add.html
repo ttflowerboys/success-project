@@ -6,32 +6,32 @@
 		<div class="CommonBox">
 			<h2 class="commonHd"><i class="icon-datashow"></i>代理商开户</h2>
 			<div class="commonBd">
-				<form action="" class="Form">
+				<form method="post" action="<{:U('index/addDo')}>" class="Form J_ajaxForm">
 					<div class="input-items">
 						<label class="label">姓名：</label>
-						<input class="ipt-text" type="text" placeholder="姓名">
+						<input class="ipt-text" type="text" placeholder="姓名" name="username" required>
 					</div>
 					<div class="input-items">
 						<label class="label">性别：</label>
-						<label class="radioWrap" for="parent_where_1"><input class="currantRadio" id="parent_where_1" type="radio" name="parent_where" value="1" checked required><label for="parent_where_1">男</label></label>
-        				<label class="radioWrap" for="parent_where_2"><input class="currantRadio" id="parent_where_2" type="radio" name="parent_where" value="2" required><label for="parent_where_2">女</label></label>
+						<label class="radioWrap" for="sex_1"><input class="currantRadio" id="sex_1" type="radio" name="sex" value="1" checked required><label for="sex_1">男</label></label>
+        				<label class="radioWrap" for="sex_2"><input class="currantRadio" id="sex_2" type="radio" name="sex" value="2" required><label for="sex_2">女</label></label>
 					</div>
 					<div class="input-items">
 						<label class="label">手机号：</label>
-						<input class="ipt-text" type="text" placeholder="手机号：">
+						<input class="ipt-text" type="text" placeholder="手机号" name="phone" required>
 					</div>
 					<div class="input-items">
 						<label class="label">身份证号：</label>
-						<input class="ipt-text" type="text" placeholder="身份证号">
+						<input class="ipt-text" type="text" placeholder="身份证号" name="identity" required>
 					</div>
 					<div class="input-items">
 						<label class="label">登录密码：</label>
-						<input class="ipt-text" type="text" placeholder="登录密码">
+						<input class="ipt-text" type="text" placeholder="登录密码" name="password" value="888888" required>
 					</div>
 					
 					<div class="input-items">
 						<label class="label">所在城市：</label>
-						<input class="ipt-text" type="text" placeholder="所在城市">
+						<input class="ipt-text" type="text" placeholder="所在城市" name="location" required>
 					</div>
 					<div class="input-items"><label class="label">&nbsp;</label><input class="ipt-submit" type="submit" value="注册"></div>
 				</form>
