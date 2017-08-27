@@ -1589,3 +1589,11 @@ function check_identity($id='')
     }
     return true;
 }
+
+// 姓名验证
+function check_username($username){
+    if (!$username) {
+        return false;
+    }
+    return preg_match('/[\x{4e00}-\x{9fa5}]+/u', $username) ? true : false;
+}
