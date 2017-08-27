@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-	<title>代理商后台管理中心</title>
-	<link rel="stylesheet" href="__PUBLIC__/static/css/common.css">
-	<link rel="stylesheet" href="__PUBLIC__/tpl/agent/css/common.css">
-</head>
-<body>
+<include file='common:header'/>
+<body id="J_agent">
 	<include file='common:aside'/>
-	<include file='common:header'/>
+	<include file='common:top'/>
 	<div class="Main">
 		<div class="CommonBox">
 			<h2 class="commonHd"><i class="icon-datashow"></i>代理商资料</h2>
@@ -18,11 +10,11 @@
 					<thead>
 						<tr>
 							<th>姓名</th>
+							<th>性别</th>
 							<th>手机号</th>
 							<th>身份证号</th>
 							<th>所在城市</th>
 							<th>注册时间</th>
-							<th>性别</th>
 							<th>操作</th>
 						</tr>
 					</thead>
@@ -59,6 +51,23 @@
 						</tr>
 					</tbody>
 				</table>
+				<ul class="pagination fr">
+					<div>
+						<span class="rows">共 128 条记录</span>
+						<span class="current">1</span>
+						<a class="num" href="">2</a>
+						<a class="num" href="">3</a>
+						<a class="num" href="">4</a>
+						<a class="num" href="">5</a>
+						<a class="num" href="">6</a>
+						<a class="num" href="">7</a>
+						<a class="next" href="">&gt;&gt;</a> 
+						<span style="padding:3px">
+							<input style="width:50px" type="number" value="1" min="1" max="9" id="page-jump-no-59a225f6ce98a" step="1" onkeydown="if(event.keyCode==13){document.getElementById('page-jump-lnk-59a225f6ce98a').click();}">
+						</span>
+						<a href="" onclick="this.href=this.href.replace(/\[PAGE\]|%5BPAGE%5D/,document.getElementById('page-jump-no-59a225f6ce98a').value);" id="page-jump-lnk-59a225f6ce98a">跳转</a>
+					</div>
+				</ul>
 			</div>
 		</div>
 		

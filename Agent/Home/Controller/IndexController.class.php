@@ -13,4 +13,12 @@ class IndexController extends Controller {
     public function add(){
         $this->display();
     }
+
+    public function count(){
+    	$this->display();
+    }
+
+    public function coin(){
+    	$this->display();
+    }
 }
