@@ -3,11 +3,24 @@
 	<div class="AsideUserface"><img src="__PUBLIC__/static/images/agentFace.jpg" alt=""></div>
 	<div class="AsideUserInfo">13007128888 <br>一个亿</div>
 	<ul class="AsideList">
-		<li class="cur"><a href="<{:U('index/index')}>"><i class="icon-dashboard"></i>首页</a></li>
+		<li><a href="<{:U('index/index')}>"><i class="icon-dashboard"></i>首页</a></li>
 		<li><a href="<{:U('index/agent')}>"><i class="icon-agent"></i>代理商资料</a></li>
 		<li><a href="<{:U('index/add')}>"><i class="icon-account"></i>开代理商后台</a></li>
 		<li><a href="<{:U('index/count')}>"><i class="icon-count"></i>代理商统计</a></li>
-		<li><a href="<{:U('index/count')}>"><i class="icon-count"></i>学习币充值</a></li>
+		<li><a href="<{:U('index/coin')}>"><i class="icon-coin"></i>学习币充值</a></li>
 		<li><a href="<{:U('index/member')}>"><i class="icon-member"></i>会员数据</a></li>
 	</ul>
 </div>
+
+<script>
+	$(function(){
+		var target = $('body').attr('id');
+		var reg = 'J_'
+		if (target) {
+			var current = target.replace(new RegExp('^\\'+reg+'+', 'g'), '')
+			$('.AsideList li').removeClass('cur').find('i.icon-'+current).closest('li').addClass('cur');
+		}else{
+			$('.AsideList li').removeClass('cur').eq(0).addClass('cur')
+		}
+	})
+</script>
