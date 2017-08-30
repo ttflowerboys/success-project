@@ -13,8 +13,8 @@
 					</div>
 					<div class="input-items">
 						<label class="label">性别：</label>
-						<label class="radioWrap" for="sex_1"><input class="currantRadio" id="sex_1" type="radio" name="sex" value="1" checked  readonly><label for="sex_1">男</label></label>
-        				<label class="radioWrap" for="sex_2"><input class="currantRadio" id="sex_2" type="radio" name="sex" value="2"  readonly><label for="sex_2">女</label></label>
+						<label class="radioWrap" for="sex_1"><input class="currantRadio" id="sex_1" type="radio" value="1" checked  readonly><label for="sex_1">男</label></label>
+        				<label class="radioWrap" for="sex_2"><input class="currantRadio" id="sex_2" type="radio" value="2"  readonly><label for="sex_2">女</label></label>
 					</div>
 					<div class="input-items">
 						<label class="label">手机号：</label>
@@ -26,13 +26,14 @@
 					</div>
 					<div class="input-items">
 						<label class="label">登录密码：</label>
-						<input class="ipt-text" type="text" placeholder="登录密码" name="password">
+						<input class="ipt-text" type="text" placeholder="如果不修改密码，请留空" name="password">
 					</div>
 					
 					<div class="input-items">
 						<label class="label">所在城市：</label>
 						<input class="ipt-text" type="text" placeholder="所在城市" value="<{$rs.location}>" readonly>
 					</div>
+					<input type="hidden" name="id" value="<{$rs.id}>">
 					<div class="input-items"><label class="label">&nbsp;</label><input class="ipt-submit" type="submit" value="提交"></div>
 				</form>
 			</div>
