@@ -1,39 +1,38 @@
 <include file='common:header'/>
 <body id="J_count">
-	<include file='common:aside'/>
-	<include file='common:top'/>
-	<div class="Main">
-		<div class="CommonBox">
-			<h2 class="commonHd"><i class="icon-datashow"></i>代理商资料</h2>
-			<div class="commonBd">
-				<table class="Table">
-					<thead>
-						<tr>
-							<th>姓名</th>
-							<th>手机号</th>
-							<th>身份证号</th>
-							<th>学习币库存</th>
-							<th>激活会员数量</th>
-							<th>上级代理商姓名</th>
-							<th>注册时间</th>
-							<th>学习币总数</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>aaa</td>
-							<td>aaa</td>
-							<td>aaa</td>
-							<td>aaa</td>
-							<td>aaa</td>
-							<td>aaa</td>
-							<td>aaa</td>
-							<td>aaa</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+    <include file='common:aside'/>
+    <include file='common:top'/>
+    <div class="Main">
+        <div class="CommonBox">
+            <h2 class="commonHd"><i class="icon-datashow"></i>代理商资料</h2>
+            <div class="commonBd">
+                <table class="Table">
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>手机号</th>
+                            <th>身份证号</th>
+                            <th>学习币库存</th>
+                            <th>激活会员数量</th>
+                            <th>上级代理商姓名</th>
+                            <th>注册时间</th>
+                            <th>学习币总数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <volist name="list" id="vo" empty="$empty">
+                        <tr>
+                            <td><{$vo.username}></td><td><{$vo.phone}></td><td><{$vo.identity}></td><td><{$vo.coin1}></td><td><{$vo.registernum}></td><td><{$vo.parentuser}></td><td><{$vo.addtime|date="Y-m-d H:i",###}></td><td><{$vo.coin}></td>
+                        </tr>
+                    </volist>
+                </table>
+                <div class="clearfix">
+                    <ul class="pagination fr">
+                        <{$page}>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
