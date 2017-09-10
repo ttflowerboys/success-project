@@ -3,8 +3,8 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends CommandController {
     public function index(){
-    	$rs = M('agent')->where(array('id'=>session('AgentId'),'phone'=>session('AgentPhone')))->find();
-    	$this->assign('rs',$rs);
+        $rs = M('agent')->where(array('id'=>session('AgentId'),'phone'=>session('AgentPhone')))->find();
+        $this->assign('rs',$rs);
         $this->display();
     }
 
@@ -41,37 +41,37 @@ class IndexController extends CommandController {
     }
 
     public function count(){
-    	$this->display();
+        $this->display();
     }
 
     public function coin(){
-    	$this->display();
+        $this->display();
     }
 
     public function addDo(){
-    	if( !IS_POST ) {E('页面不存在！');}
-    	$username = trim(I('username'));
-		$sex = trim(I('sex'));
-		$phone = trim(I('phone'));
-		$identity = trim(I('identity'));
-		$password = trim(I('password'));
-		$location = trim(I('location'));
+        if( !IS_POST ) {E('页面不存在！');}
+        $username = trim(I('username'));
+        $sex = trim(I('sex'));
+        $phone = trim(I('phone'));
+        $identity = trim(I('identity'));
+        $password = trim(I('password'));
+        $location = trim(I('location'));
 
-    	if (empty($username)) {$this->error('姓名不能为空！');}elseif (!check_username($username)) {
-    		$this->error('请输入中文姓名！');
-    	}
-    	if (empty($sex)) {$this->error('请选择性别！');}
-    	if (empty($phone)) {$this->error('手机号不能为空！');}elseif (!isMobile($phone)) {
-    		$this->error('请输入正确手机号！');
-    	}
-    	if (empty($identity)) {$this->error('身份证号不能为空！');}elseif (!check_identity($identity)) {
-    		$this->error('请输入正确身份证号！');
-    	}
-    	if (empty($password)) {$this->error('登录密码不能为空！');}
-    	if (empty($location)) {$this->error('所在城市不能为空！');}
+        if (empty($username)) {$this->error('姓名不能为空！');}elseif (!check_username($username)) {
+            $this->error('请输入中文姓名！');
+        }
+        if (empty($sex)) {$this->error('请选择性别！');}
+        if (empty($phone)) {$this->error('手机号不能为空！');}elseif (!isMobile($phone)) {
+            $this->error('请输入正确手机号！');
+        }
+        if (empty($identity)) {$this->error('身份证号不能为空！');}elseif (!check_identity($identity)) {
+            $this->error('请输入正确身份证号！');
+        }
+        if (empty($password)) {$this->error('登录密码不能为空！');}
+        if (empty($location)) {$this->error('所在城市不能为空！');}
 
-    	$agent = M('agent');
-    	if ($agent->where(array('phone' => $phone))->find()) {
+        $agent = M('agent');
+        if ($agent->where(array('phone' => $phone))->find()) {
             $this->error('手机号已存在！');
         }
         if ($agent->where(array('identity' => $identity))->find()) {
@@ -87,18 +87,42 @@ class IndexController extends CommandController {
         $data['password'] = md5($password);
         $data['location'] = $location;
         $data['addtime'] = time();
-        $data['parentid'] = $agentId;
+        $data['agentnum'] = 0; # 团队总人数，不算自己
+        $data['agent'] = 0;
+        $data['ldstr'] = '';
 
+        # 1. 检查上级代理商是否存在
+        $pRs = $agent->where(array('id'=>$agentId))->find();
+        if (!$pRs) {
+            $this->error('上级代理商不存在！');
+        }
+        # 1.1 设置新代理商ldstr
+        $pId = $pRs['id'];
+        $data['parentid'] = $pId;
+        if($pRs['parentid']){
+            $data['ldstr'] = $pRs['ldstr']. ','.$pId;
+        }else{
+            $data['ldstr'] = $pId;
+        }
+
+        # 2. 注册代理商
         $agent->startTrans();
         $rs = $agent->add($data);
         if ($rs === false) {
-        	$agent->rollback();
-        	$this->error('代理商注册失败！');
+            $agent->rollback();
+            $this->error('代理商注册失败！');
         }
 
-         if($agent->where(array('id'=>$agentId))->save(array('agent'=>array('exp','agent+1'))) === false){
+        # 3.更新直属上级代理商        
+        if($agent->where(array('id'=>$pId))->save(array('agent'=>array('exp','agent+1'))) === false){
             $agent->rollback();
             $this->error('更新代理商失败');
+        }
+
+        #  更新所有代理商 总数
+        if($agent->where(array('id'=>array('in',$data['ldstr'])))->save(array('agentnum'=>array('exp','agentnum+1')))===false){
+            $agent->rollback();
+            $this->error('更新代理商人数失败');
         }
 
         $agent->commit();
