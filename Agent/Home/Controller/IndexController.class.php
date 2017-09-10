@@ -41,6 +41,20 @@ class IndexController extends CommandController {
     }
 
     public function count(){
+        $agent = M('agent');
+
+        $map['parentid'] = session('AgentId');
+        $listcount = $agent->where($map)->field('id')->count();
+        $Page = new \Think\Page($listcount, 20);
+        
+        $list = $agent->where($map)->order('id desc')->limit($Page->firstRow . ',' . $Page->listRows)->select();
+
+        $empty = "<div class='NoInfo'><div class='tit'><i class='icon-lost'></i>空空如也～</div>抱歉，暂时还未搜索到<b class='t-green'>代理商</b>相关信息！</div>";
+        $this->assign('empty',$empty);
+        $this->assign('username',$username);
+        $this->assign('phone',$phone);
+        $this->assign('page', $Page->show());
+        $this->assign('list', $list);
         $this->display();
     }
 
