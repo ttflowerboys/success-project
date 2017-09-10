@@ -99,6 +99,7 @@ class IndexController extends CommandController {
         # 1.1 设置新代理商ldstr
         $pId = $pRs['id'];
         $data['parentid'] = $pId;
+        $data['parentuser'] = $pRs['username'];
         if($pRs['parentid']){
             $data['ldstr'] = $pRs['ldstr']. ','.$pId;
         }else{
