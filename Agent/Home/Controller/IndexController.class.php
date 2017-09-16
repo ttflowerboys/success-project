@@ -63,6 +63,72 @@ class IndexController extends CommandController {
         $this->display();
     }
 
+    public function coinDo(){
+        if( !IS_POST ) {E('页面不存在！');}
+        $num = trim(I('num'));
+        $phone = trim(I('phone'));
+        $type = trim(I('type'));
+        if (empty($phone)) {$this->error('手机号不能为空！');}elseif (!isMobile($phone)) { $this->error('请输入正确手机号！'); }
+        if (!is_numeric($num) || empty($num)) { $this->error('参数有误，请返回1！'); }
+        if (!is_numeric($type) || empty($type)) { $this->error('参数有误，请返回！'); }
+
+        $agent = M('agent');
+        $user = M('user');
+        # 1. 检测当前代理商信息
+        $agentRs = $agent->where(array('id'=>session('AgentId')))->find();
+        $agentId = $agentRs['id'];
+        if (!$agentRs) {
+            $this->error('操作失败，亲稍后再试！');
+        }elseif($num > $agentRs['coin1']) {
+            $this->error('学习币库存不足！');
+        }elseif($agentRs['phone'] == $phone) {
+            $this->error('不能给自己充值！');
+        }
+
+        # 2. 通过手机号 检测用户，是否存在
+        $db = $type == '1' ? $agent : $user;        
+        $rs = $db->where(array('phone'=>$phone))->find();
+        if (!$rs) {
+            $this->error('用户不存在！');
+        }
+
+        $agent->startTrans();
+        # 3. 直属关系充值
+        if ($type == '1') {
+            $agentData = $db->field('id,phone,parentid')->select();
+            # 1. 先向下
+            $a1 = $this->getChildsId($agentData, $agentId);
+            # 2. 后向上
+            $a2 = $this->getParentsId($agentData, $agentId);
+            # 3. 数组合并
+            $a = array_merge($a1, $a2);
+            # 4. 是否在数组中
+            $r = in_array($rs['id'], $a);
+            if ($r) {
+                # 2.1 可以开始充值了
+                $income['coin'] = array('exp','coin+' . $num);
+                $income['coin1'] = array('exp','coin1+' . $num);
+                if ($db->where(array('id'=>$r))->save($income) === false) {
+                    $agent->rollback();
+                    $this->error('糟糕，充值失败！');
+                }
+                $pay['coin1'] = array('exp','coin1-' . $num);
+                $pay['coin2'] = array('exp','coin2+' . $num);
+                if($db->where(array('id'=>$agentId))->save($pay) === false){
+                    $agent->rollback();
+                    $this->error('糟糕，充值失败！');
+                }
+            }else{
+                $this->error('对不起，您不能给该代理商充值！');
+            }
+        }
+
+        $agent->commit();
+        $this->success('恭喜，学习币充值成功！');
+
+    }
+
+
     public function addDo(){
         if( !IS_POST ) {E('页面不存在！');}
         $username = trim(I('username'));
@@ -156,4 +222,41 @@ class IndexController extends CommandController {
         }
         return $arr;
     }
+
+    //传递一个父级分类ID返回所有子分类ID
+    Static Public function getChildsId ($data, $pid) {
+        $arr = array();
+        foreach ($data as $v) {
+            if ($v['parentid'] == $pid) {
+                $arr[] = $v['id'];
+                $arr = array_merge($arr, self::getChildsId($data, $v['id']));
+            }
+        }
+        return $arr;
+    }
+
+    //传递一个子分类ID返回所有的父级分类
+    public function getParents ($data, $id) {
+        $arr = array();
+        foreach ($data as $v) {
+            if ($v['id'] == $id) {
+                $arr[] = $v;
+                $arr = array_merge(self::getParents($data, $v['parentid']), $arr); 
+            }
+        }
+        return $arr;
+    }    
+
+    //传递一个子分类ID返回所有的父级分类ID
+    public function getParentsId ($data, $id) {
+        $arr = array();
+        foreach ($data as $v) {
+            if ($v['id'] == $id) {
+                $arr[] = $v['id'];
+                $arr = array_merge(self::getParentsId($data, $v['parentid']), $arr); 
+            }
+        }
+        return $arr;
+    }
+
 }
