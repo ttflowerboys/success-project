@@ -10,10 +10,26 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-09-10 14:31:38
+Date: 2017-09-16 18:09:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for coin
+-- ----------------------------
+DROP TABLE IF EXISTS `coin`;
+CREATE TABLE `coin` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uid` int(10) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of coin
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for jack_admin
@@ -62,11 +78,11 @@ CREATE TABLE `jack_agent` (
 -- ----------------------------
 -- Records of jack_agent
 -- ----------------------------
-INSERT INTO `jack_agent` VALUES ('1', 'jack', '13007120000', '1', '123456789', '湖北武汉', 'e10adc3949ba59abbe56e057f20f883e', '10', '5', '5', '2', '4', '0', '0', null, '0', null, '0', '1');
-INSERT INTO `jack_agent` VALUES ('4', '发给', '13007120001', '1', '1300', 'aa', '21218cca77804d2ba1922c33e0151105', '0', '0', '0', '2', '2', '0', '0', 'jack', '1', '1', '1505019149', '1');
-INSERT INTO `jack_agent` VALUES ('5', '我去', '13007120002', '1', '123', '13007120002', '21218cca77804d2ba1922c33e0151105', '0', '0', '0', '0', '0', '0', '0', 'jack', '1', '1', '1505019222', '1');
-INSERT INTO `jack_agent` VALUES ('6', '啊啊', '13007121111', '1', '13007121111', '13007121111', '21218cca77804d2ba1922c33e0151105', '0', '0', '0', '0', '0', '0', '0', '发给', '4', '1,4', '1505019322', '1');
-INSERT INTO `jack_agent` VALUES ('7', '去去', '13007121112', '1', '13007121112', '13007121112', '21218cca77804d2ba1922c33e0151105', '0', '0', '0', '0', '0', '0', '0', '发给', '4', '1,4', '1505019359', '1');
+INSERT INTO `jack_agent` VALUES ('1', 'jack', '13007120000', '1', '123456789', '湖北武汉', '21218cca77804d2ba1922c33e0151105', '13', '6', '5', '2', '4', '0', '0', null, '0', null, '0', '1');
+INSERT INTO `jack_agent` VALUES ('4', '发给', '13007120001', '1', '1300', 'aa', '21218cca77804d2ba1922c33e0151105', '2', '0', '2', '2', '2', '0', '0', 'jack', '1', '1', '1505019149', '1');
+INSERT INTO `jack_agent` VALUES ('5', '我去', '13007120002', '1', '123', '13007120002', '21218cca77804d2ba1922c33e0151105', '2', '1', '1', '0', '0', '0', '0', 'jack', '1', '1', '1505019222', '1');
+INSERT INTO `jack_agent` VALUES ('6', '啊啊', '13007121111', '1', '13007121111', '13007121111', '21218cca77804d2ba1922c33e0151105', '2', '1', '1', '0', '0', '0', '0', '发给', '4', '1,4', '1505019322', '1');
+INSERT INTO `jack_agent` VALUES ('7', '去去', '13007121112', '1', '13007121112', '13007121112', '21218cca77804d2ba1922c33e0151105', '2', '1', '1', '0', '0', '0', '0', '发给', '4', '1,4', '1505019359', '1');
 
 -- ----------------------------
 -- Table structure for jack_user
