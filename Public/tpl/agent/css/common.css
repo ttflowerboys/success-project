@@ -70,7 +70,7 @@ html,body{width: 100%;height: 100%;overflow: hidden;}
 
 
 .Form{width: 350px;margin-top: 22px;}
-.Form .input-items{height: 32px;margin-bottom: 15px;clear: both;}
+.Form .input-items{height: 32px;line-height: 32px;margin-bottom: 15px;clear: both;}
 .Form .label{width: 110px;height: 32px;padding-right: 12px;line-height: 32px;text-align: right;float: left;}
 .Form .ipt-text{float: left;width: 228px;height: 32px;padding: 2px 8px;border: 1px solid #e3e3e3;border-radius: 3px;}
 .Form .ipt-text:focus{border-color: #66afe9;outline: 0;box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);}

@@ -19,5 +19,7 @@ a:hover{color: #0a1de9;transition : color 0.2s linear 0s,background-color 0.3 li
 .fl{float: left;}.fr{float: right;}.rel{position: relative;}.abs{position: absolute;}
 i,b,em{font-weight: normal;font-style: normal;}
 
+.t-red{color: #fc1615;}
+.fsize16{font-size: 16px;}
 .col-2{width: 49%;float: left;}
 .col-2:nth-child(2){float: right;}

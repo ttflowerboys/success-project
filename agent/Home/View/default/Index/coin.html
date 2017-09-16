@@ -6,19 +6,23 @@
 		<div class="CommonBox">
 			<h2 class="commonHd"><i class="icon-datashow"></i>学习币充值</h2>
 			<div class="commonBd">
-				<form action="" class="Form">
+				<form  method="post" action="<{:U('index/coinDo')}>" class="Form J_ajaxForm">
+					<div class="input-items">
+						<label class="label">学习币库存：</label>
+						<strong class="t-red fsize16"> <{$agent.coin1}> </strong>个
+					</div>
 					<div class="input-items">
 						<label class="label">手机号：</label>
-						<input class="ipt-text" type="text" placeholder="手机号">
+						<input class="ipt-text" type="text" name="phone" placeholder="手机号" required>
 					</div>
 					<div class="input-items">
 						<label class="label">充值数量：</label>
-						<input class="ipt-text" type="text" placeholder="充值数量">
+						<input class="ipt-text" type="number" name="num" placeholder="充值数量" required>
 					</div>
 					<div class="input-items">
 						<label class="label">用户类型：</label>
-						<label class="radioWrap" for="parent_where_1"><input class="currantRadio" id="parent_where_1" type="radio" name="parent_where" value="1" checked required><label for="parent_where_1">代理</label></label>
-        				<label class="radioWrap" for="parent_where_2"><input class="currantRadio" id="parent_where_2" type="radio" name="parent_where" value="2" required><label for="parent_where_2">会员</label></label>
+						<label class="radioWrap" for="type_1"><input class="currantRadio" id="type_1" type="radio" name="type" value="1" checked required><label for="type_1">代理</label></label>
+        				<label class="radioWrap" for="type_2"><input class="currantRadio" id="type_2" type="radio" name="type" value="2" required><label for="type_2">会员</label></label>
 					</div>
 					<div class="input-items"><label class="label">&nbsp;</label><input class="ipt-submit" type="submit" value="充值"></div>
 				</form>
