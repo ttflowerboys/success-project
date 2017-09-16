@@ -47,9 +47,14 @@ class IndexController extends CommandController {
         $result = $agent->order('id desc')->select();
         $list = $this->getChilds($result, $pid);
 
+        // $listcount = count($list);
+        // $pageNum = 1;
+        // $Page = new \Think\Page($listcount, $pageNum);
+        // $rs = array_slice($list, $Page->firstRow . ',' . $Page->listRows . ', ""');
+
         $empty = "<div class='NoInfo'><div class='tit'><i class='icon-lost'></i>空空如也～</div>抱歉，暂时还未搜索到<b class='t-green'>代理商</b>相关信息！</div>";
         $this->assign('empty',$empty);
-        $this->assign('page', $Page->show());
+        // $this->assign('page', $Page->show());
         $this->assign('list', $list);
         $this->display();
     }
