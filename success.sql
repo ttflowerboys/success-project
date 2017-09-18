@@ -10,26 +10,10 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-09-16 18:09:07
+Date: 2017-09-18 21:30:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
-
--- ----------------------------
--- Table structure for coin
--- ----------------------------
-DROP TABLE IF EXISTS `coin`;
-CREATE TABLE `coin` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `uid` int(10) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of coin
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for jack_admin
@@ -85,21 +69,28 @@ INSERT INTO `jack_agent` VALUES ('6', '啊啊', '13007121111', '1', '13007121111
 INSERT INTO `jack_agent` VALUES ('7', '去去', '13007121112', '1', '13007121112', '13007121112', '21218cca77804d2ba1922c33e0151105', '2', '1', '1', '0', '0', '0', '0', '发给', '4', '1,4', '1505019359', '1');
 
 -- ----------------------------
--- Table structure for jack_user
+-- Table structure for jack_member
 -- ----------------------------
-DROP TABLE IF EXISTS `jack_user`;
-CREATE TABLE `jack_user` (
+DROP TABLE IF EXISTS `jack_member`;
+CREATE TABLE `jack_member` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL COMMENT '用户名',
   `phone` varchar(20) DEFAULT NULL COMMENT '手机号',
   `coin` int(10) DEFAULT NULL COMMENT '激活币',
-  `agentid` int(10) DEFAULT NULL COMMENT '代理商ID',
   `parentid` int(10) DEFAULT '0' COMMENT '上级会员(0,自由注册;>0，会员)',
+  `parentphone` varchar(11) DEFAULT NULL COMMENT '推荐人手机号',
+  `agentid` int(10) DEFAULT NULL COMMENT '代理商ID',
   `status` tinyint(2) DEFAULT '0' COMMENT '会员状态（0，未激活；1,激活）',
   `hobby` varchar(255) DEFAULT NULL COMMENT '兴趣爱好',
+  `ldstr` varchar(255) DEFAULT NULL COMMENT '推荐关系',
+  `addtime` int(10) DEFAULT NULL COMMENT '注册时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of jack_user
+-- Records of jack_member
 -- ----------------------------
+INSERT INTO `jack_member` VALUES ('1', 'love', '13007126958', null, '0', null, null, '0', null, null, '1505019149');
+INSERT INTO `jack_member` VALUES ('2', null, '13007120000', null, '1', '13007126958', null, '0', null, '1', '1505019149');
+INSERT INTO `jack_member` VALUES ('3', null, '13007120001', null, '2', '13007120000', null, '0', null, '1,2', '1505019149');
+INSERT INTO `jack_member` VALUES ('4', 'jack', '13007120002', null, '2', '13007120000', null, '1', '吃', '1,2', '1505029129');
