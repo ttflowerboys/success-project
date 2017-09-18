@@ -128,6 +128,14 @@ class IndexController extends CommandController {
 
     }
 
+    public function member(){
+        $member = M('member');
+        $rs = $member->where(array('phone'=>session('AgentPhone')))->find();
+        $result = $member->order('id desc')->select();
+        $list = $this->getChilds($result, $rs['id']);
+        $this->assign('list',$list);
+        $this->display();
+    }
 
     public function addDo(){
         if( !IS_POST ) {E('页面不存在！');}

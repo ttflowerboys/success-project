@@ -9,25 +9,29 @@
 				<table class="Table">
 					<thead>
 						<tr>
-							<th>姓名</th>
 							<th>手机号</th>
+							<th>姓名</th>							
 							<th>性别</th>
 							<th>身份证号</th>
 							<th>感兴趣行业</th>
 							<th>所在城市</th>
 							<th>注册时间</th>
+							<th>状态</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>aaa</td>
-							<td>aaa</td>
-							<td>aaa</td>
-							<td>aaa</td>
-							<td>aaa</td>
-							<td>aaa</td>
-							<td>aaa</td>
-						</tr>
+						<volist name="list" id="vo" empty="$empty">
+							<tr>
+								<td><{$vo.phone}></td>
+								<td><if condition="$vo.username eq ''">-<else/><{$vo.username}></if></td>								
+								<td><if condition="$vo.sex eq ''">-<else/>男</if></td>
+								<td><if condition="$vo.status eq ''">-<else/>-</if></td>
+								<td><if condition="$vo.hobby eq ''">-<else/><{$vo.hobby}></if></td>
+								<td><if condition="$vo.status eq ''">-<else/>激活</if></td>
+								<td><{$vo.addtime|date="Y-m-d H:i",###}></td>
+								<td><if condition="$vo.status eq 0"><b class="t-red">未激活</b><else/>激活</if></td>
+							</tr>
+						</volist>
 					</tbody>
 				</table>
 			</div>
